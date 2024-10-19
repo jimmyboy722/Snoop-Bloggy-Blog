@@ -1,10 +1,16 @@
 // IMPORTING THE EXPRESS ROUTER
 const router = require("express").Router();
-// IMPORTING THE INDEX.JS FROM API FOLDER
+// IMPORTING THE ROUTE HANDLERS
 const apiRoutes = require("./api");
+const homePageRoutes = require("./homePageRoutes");
+const dashboardRoutes = require("./dashboardRoutes");
 
-// WHEN A REQUEST IS MADE TO /api, IT WILL BE DIRIVED TO apiRoutes IN api/index.js
+// PREFACES ALL API ROUTES WITH '/api'
 router.use("/api", apiRoutes);
+// SETS THE HOME PAGE ROUTES TO RESPOND AT THE ROOT URL
+router.use("/", homePageRoutes);
+// SETS THE DASHBOARD ROUTES TO RESPOND AT THE /dashboard URL
+router.use("/dashboard", dashboardRoutes);
 
 // EXPORTING THE ROUTER
 module.exports = router;
