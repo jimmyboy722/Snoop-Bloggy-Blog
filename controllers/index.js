@@ -5,6 +5,7 @@ const apiRoutes = require("./api");
 const homePageRoutes = require("./homePageRoutes");
 const dashboardRoutes = require("./dashboardRoutes");
 
+// SETTING UP MIDDLEWARE
 // PREFACES ALL API ROUTES WITH '/api'
 router.use("/api", apiRoutes);
 // SETS THE HOME PAGE ROUTES TO RESPOND AT THE ROOT URL
