@@ -6,7 +6,7 @@ const commentRoutes = require("./commentRoutes");
 const userRoutes = require("./userRoutes");
 const postRoutes = require("./postRoutes");
 
-// SETTING UP middleware
+// SETTING UP MIDDLEWARe
 router.use("/comments", commentRoutes);
 router.use("/users", userRoutes);
 router.use("/posts", postRoutes);

@@ -3,13 +3,13 @@ const router = require("express").Router();
 // IMPORTING THE POST MODEL
 const { Post } = require("../models");
 // IMPORTING THE UTILITY FUNCTION ' withGuard '
-const { withGuard } = require("../utils/authGuard");
+const { loggedIn } = require("../utils/authGuard");
 
 // SETTING UP ROUTES
 
 // DASHBOARD ROUTE
-router.get("/", withGuard, async (req, res) => {
-  // USING WITHGUARD TO ENSURE ONLY AUTHENTICATED USERS CAN ACCESS THE DASHBOARD
+router.get("/", loggedIn, async (req, res) => {
+  // USING LOGGEDIN TO ENSURE ONLY AUTHENTICATED USERS CAN ACCESS THE DASHBOARD
   // TRY CATCH BLOCK TO HANDLE ERRORS
   try {
     const dbPostData = await Post.findAll({
@@ -35,7 +35,7 @@ router.get("/", withGuard, async (req, res) => {
 });
 
 // NEW POST ROUTE
-router.get("/new", withGuard, (req, res) => {
+router.get("/new", loggedIn, (req, res) => {
   res.render("newPost", {
     // RENDERS THE NEW POST VIEW
     dashboard: true,
@@ -44,7 +44,7 @@ router.get("/new", withGuard, (req, res) => {
 });
 
 // EDIT POST ROUTE
-router.get("/edit/:id", withGuard, async (req, res) => {
+router.get("/edit/:id", loggedIn, async (req, res) => {
   try {
     const dbPostData = await Post.findByPk(req.params.id); // USING POST.FINDBYPK TO FIND A SPECIFIC POST BY ID
     // CONDITIONAL RENDERING BASED ON WHETHER A USER POST WAS FOUND

@@ -3,7 +3,7 @@ const router = require("express").Router();
 // IMPORTING THE MODELS
 const { User, Post, Comment } = require("../models");
 // IMPORTING THE UTILITY FUNCTIONS
-const { withGuard, withoutGuard } = require("../utils/authGuard");
+const { notLoggedIn } = require("../utils/authGuard");
 
 // SETTING UP ROUTES
 // HOMEPAGE ROUTE FOR WHEN THE SITE IS LOADED
@@ -53,8 +53,8 @@ router.get("/post/:id", async (req, res) => {
 });
 
 // LOGIN ROUTE
-router.get("/login", withoutGuard, (req, res) => {
-  // USING WITHOUTGUARD TO ENSURE ONLY UNAUTHENTICATED USERS CAN LOGIN
+router.get("/login", notLoggedIn, (req, res) => {
+  // USING NOTLOGGEDIN TO ENSURE ONLY UNAUTHENTICATED USERS CAN LOGIN
   try {
     res.render("login"); // RENDER THE LOGIN VIEW
   } catch (err) {
@@ -64,8 +64,8 @@ router.get("/login", withoutGuard, (req, res) => {
 });
 
 // SIGNUP ROUTE
-router.get("/signup", withoutGuard, (req, res) => {
-  //AGAIN USING WITHOUTGUARD SO ONLY UNAUTHENTICATED USERS CAN ACESS THE SIGNUP PAGE
+router.get("/signup", notLoggedIn, (req, res) => {
+  //AGAIN USING NOTLOGGEDIN SO ONLY UNAUTHENTICATED USERS CAN ACCESS THE SIGNUP PAGE
   try {
     res.render("signup"); // RENDER THE SIGNUP VIEW
   } catch (err) {
