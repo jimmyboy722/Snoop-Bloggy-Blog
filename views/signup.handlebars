@@ -1,0 +1,27 @@
+{{!Providing signup form for user to create new account }}
+
+<section class="card">{{!Container}}
+  {{!header}}
+  <div class="card-header">
+    <h2>Sign Up!</h2>
+  </div>
+  {{! signup form }}
+  <div id="signup" role="tabpanel">{{! id=signup assigning id to signup form , tabpanel for accessibility }}
+    <form id="signup-form" class="card-body">
+      {{! input fields }}
+      <div>
+        <label for="username-input-signup" class="form-label">Username</label>
+        <input type="text" id="username-input-signup" />
+      </div>
+      <div>
+        <label for="password-input-signup" class="form-label">Password</label>
+        <input type="password" id="password-input-signup" />
+      </div>
+      {{! submit button }}
+      <button type="submit" id="signup-btn" class="btn">Signup</button>
+      <a href="/login">Or...Login instead</a>{{! link to login page if user already has an account }}
+    </form>
+  </div>
+</section>
+{{!link to signup.js}}
+<script src="/js/signup.js"></script>

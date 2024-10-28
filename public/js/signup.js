@@ -26,11 +26,11 @@ const signupFormHandler = async function (event) {
       document.location.replace("/"); // IF SUCCESSFUL, REDIRECTING THE USER TO THE HOME PAGE
     } else {
       // OTHERWISE, DISPLAYING AN ERROR MESSAGE
-      alert("Failed to sign up");
+      alert("Signup unsuccessful");
     }
   } else {
     alert(
-      "Please ensure user credentials are valid and password is at least 8 characters long"
+      "Invalid Credentials. Password must be at least 8 characters long and username cannot be empty."
     );
   }
 };

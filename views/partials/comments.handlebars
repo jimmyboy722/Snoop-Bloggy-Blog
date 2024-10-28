@@ -1,0 +1,11 @@
+{{! Used to display individual comments on posts }}
+
+<section>{{!container}}
+  <div>
+    {{body}}{{!placeholder for the body of the comment}}
+  </div>
+  <div>
+    {{!&mdash renders an em dash, separating the username and date of the comment }}
+    &mdash; {{user.username}}, {{formatDate createdAt}}
+  </div>
+</section>

@@ -68,7 +68,7 @@ input {
   margin: 0 0 5px;
   padding: 10px;
 }
-/* card header color*/
+/* CARD HEADER STYLING*/
 .card-header h2 {
   color: var(--primary);
 }

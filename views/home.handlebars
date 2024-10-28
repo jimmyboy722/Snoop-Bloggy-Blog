@@ -1,0 +1,20 @@
+{{! Used as the home page, displays all posts }}
+
+<div class="posts">{{!Container}}
+    {{#each posts}}{{!Looping through array of posts, each displaying as a separate card }}
+    {{! Post Card design }}
+    <section class="card">
+        {{! Card Header }}
+        <div class="card-header flex-row justify-space-between">
+            <h2>
+                <a href="/posts/{{id}}">{{title}}</a>{{! link to individual post's page }}
+            </h2>
+            {{!Author and Date}}
+            <p>Added by {{user.username}} on {{formDate.createdAt}}</p>
+        </div>
+        <div class="card-body">
+            {{body}}{{!placeholder for the body of the post}}
+        </div>
+    </section>
+    {{/each}}{{! end of loop }}
+</div>

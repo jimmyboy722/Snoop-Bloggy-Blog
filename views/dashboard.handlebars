@@ -1,0 +1,11 @@
+{{!Used to display posts on the dashboard}}
+
+{{! Container div for posts }}
+<div class="post list-group">
+{{#each posts}}{{!each posts iterates over the posts array passed in, then each post generates a list item }}
+<a class="list-item flex-row justify-space-between" href="/dashboard/edit/{{id}}"a>
+    <section>{{title}}</section>{{!displays the title of each post}}
+    <section>{{createdAt}}</section>{{!displays the creation date of each post}}
+</a>
+{{/each}}
+</div>

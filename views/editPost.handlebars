@@ -1,0 +1,27 @@
+{{!Template for editing a post, prefilled with the current post data}}
+
+<div class="post card">{{!Container}}
+    {{!header}}
+    <div class="card-header">
+        <h2>Edit Your Post</h2>
+    </div>
+    <form id="edit-post-form" class="card-body">
+        <input type="hidden" name="post-id" value="{{post.id}}"/>{{! hidden field for post id, included so the server knows which post to edit }}
+
+        {{!editable fields}}
+        <label class="form-label" for="post-title">Post-Title</label>
+        <input class="form-input" type="text" name="post-title" value="{{post.title}}"/>
+        
+        <label class="form-label" for="post-body">Post</label>
+        <textarea class="form-input form-input-squared" name="post-body">{{post.body}}</textarea>{{! textarea for post body, prefilled with current post data }}
+        {{!submit button}}
+        <button class="btn" type="submit">Submit</button>
+        {{!delete button}}
+        <button class="btn" type="button" id="delete-btn">Delete-Post</button>
+
+    </form>
+</div>
+
+</div>
+{{!link to edit post script}}
+<script src="/public/js/editPost.js"></script>

@@ -1,0 +1,57 @@
+{{! Used for displaying a single post and its comments }}
+
+<div class="post card">{{! main container }}
+  {{!header}}
+  <section class="card-header">
+    <div class="card-header flex-row justify-space-between"> 
+    <h2>{{post.title}}</h2>{{!displays the title of the post }}
+    <p>Posted by {{post.user.username}} on {{post.createdAt}}</p>{{!displays the creation date of the post along with the user's name }}
+    </div>
+    {{! body }}
+  <div class="card-body">
+    {{post.body}}{{!placeholder for the body of the post }}
+  </div>
+  </section>
+  {{! comments section }}
+  {{! if the post has comments, this section will be displayed in a card }}
+  {{#if post.comments}}
+
+  <section class="card">
+    {{!header}}
+    <div class="card-header">
+      <h3>Comments</h3>
+    </div>
+
+    {{!body}}
+    <div class="card-body">
+      {{!loop through comments in post.comments, then renders a partial for each comment }}
+      {{#each post.comments as |comment|}}
+      {{>comments}}{{!partial for displaying individual comments }}
+      {{/each}}
+    </div>
+  </section>
+
+  {{/if}}{{!closing conditional block}}
+  
+  {{!new comment form}}
+  <form id="new-comment-form" class="card">
+    {{!header}}
+    <section class="card-header">
+      <h3>New Comment</h3>
+    </section>
+    {{!body}}
+    <section class="card-body">
+      {{!input fields}}
+      <input type="hidden" name="post-id" value="{{post.id}}"/>
+
+      <label class="form-label" for="comment-body">Comment</label>
+
+      <textarea class="form-input" name="comment-body"></textarea>
+
+      {{!submit button}}
+      <button class="btn" type="submit">Submit</button>
+    </section>
+  </form>
+</div>
+{{!link to comments.js}}
+<script src="/js/comments.js"></script>
