@@ -5,10 +5,10 @@ const router = require("express").Router();
 // IMPORTING THE POST MODEL
 const { Post } = require("../../models/");
 // IMPORTING THE UTILITY FUNCTION FOR AUTHENTICATION CHECKS
-const { apiLog } = require("../../utils/logStatus");
+const { loggedIn, apiCheck } = require("../../utils/logStatus");
 
 // CREATING A NEW POST
-router.post("/", apiLog, async (req, res) => {
+router.post("/", apiCheck, async (req, res) => {
   // APILOG TO ENSURE USER IS LOGGED IN BEFORE CREATING A POST
   const body = req.body; //  EXTRACTING THE POST DATA FROM THE REQUEST BODY
 
@@ -24,7 +24,7 @@ router.post("/", apiLog, async (req, res) => {
 
 // UPDATING A POST
 // AGAIN, USING APILOG TO ENSURE USER IS AUTHENTICATED
-router.put("/:id", apiLog, async (req, res) => {
+router.put("/:id", apiCheck, async (req, res) => {
   // POST IDENTIFIER IN URL
   try {
     const [updatedPosts] = await Post.update(req.body, {
@@ -45,7 +45,7 @@ router.put("/:id", apiLog, async (req, res) => {
 });
 
 // DELETING A POST
-router.delete("/:id", apiLog, async (req, res) => {
+router.delete("/:id", apiCheck, async (req, res) => {
   try {
     const [deletedPosts] = Post.destroy({
       where: {

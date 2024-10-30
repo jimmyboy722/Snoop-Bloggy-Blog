@@ -1,9 +1,9 @@
 // CENTRALIZES ACCESS TO MODELS
 
 //IMPORTING MODELS
-const User = require("./User");
-const Post = require("./Post");
-const Comment = require("./Comment");
+const User = require("./Users");
+const Post = require("./Posts");
+const Comment = require("./Comments");
 
 Post.belongsTo(User, {
   // RELATIONSHIP BETWEEN POST AND USER, ONE TO MANY RELATIONSHIP

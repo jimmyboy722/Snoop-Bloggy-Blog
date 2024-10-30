@@ -3,7 +3,7 @@ const router = require("express").Router();
 // IMPORTING THE MODELS
 const { User, Post, Comment } = require("../models");
 // IMPORTING THE UTILITY FUNCTIONS
-const { notLoggedIn } = require("../utils/authGuard");
+const { notLoggedIn } = require("../utils/logStatus");
 
 // SETTING UP ROUTES
 // HOMEPAGE ROUTE FOR WHEN THE SITE IS LOADED
@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
     // MAPS OVER DBPOSTDATA AND CONVERTS IT INTO A PLAIN JAVASCRIPT OBJECT
     const posts = dbPostData.map((post) => post.get({ plain: true }));
     // RENDERING THE HOMEPAGE VIEW WITH THE POSTS DATA AND LOGGEDIN STATUS FROM SESSION
-    res.render("homepage", { posts, loggedIn: req.session.loggedIn });
+    res.render("home", { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     // TO CATCH ANY ERRORS AND SEND A 500 STATUS RESPONSE WITH THE ERROR MESSAGE
     console.error(err);

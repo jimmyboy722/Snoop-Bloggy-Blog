@@ -5,10 +5,10 @@ const router = require("express").Router();
 // IMPORTING THE COMMENT MODEL
 const { Comment } = require("../../models/");
 // IMPORTING THE UTILITY FUNCTION FOR AUTHENTICATION CHECKS
-const { apiLog } = require("../../utils/authGuard");
+const { apiLog, apiCheck } = require("../../utils/logStatus");
 
-router.post("/", apiLog, async (req, res) => {
-  // APILOG TO ENSURE USER IS LOGGED IN BEFORE CREATING A COMMENT
+router.post("/", apiCheck, async (req, res) => {
+  // APICHECK TO ENSURE USER IS LOGGED IN BEFORE CREATING A COMMENT
   //TRY CATCH BLOCK TO HANDLE REQUESTS
   try {
     const newComment = await Comment.create({

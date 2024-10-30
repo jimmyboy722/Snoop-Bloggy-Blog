@@ -3,7 +3,7 @@ const router = require("express").Router();
 // IMPORTING THE POST MODEL
 const { Post } = require("../models");
 // IMPORTING THE UTILITY FUNCTION ' withGuard '
-const { loggedIn } = require("../utils/authGuard");
+const { loggedIn } = require("../utils/logStatus");
 
 // SETTING UP ROUTES
 
