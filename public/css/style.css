@@ -1,10 +1,10 @@
 /*css variables for the root pseudo-class */
 :root {
-  --primary: #ccdad1; /* for primary elements*/
+  --primary: #fff; /* for primary elements*/
   --secondary: #9caea9; /* for accent elements*/
   --tertiary: #788585; /* for text elements*/
   --light-dark: #6f6866; /* for borders and shadows*/
-  --dark: #38302e; /* for high-contrast elements*/
+  --dark: #3e407a; /* for high-contrast elements*/
   --border-radius: 0.5rem;
 }
 
@@ -54,8 +54,13 @@ main {
 }
 /*link styles*/
 a {
-  text-decoration: none;
+  text-decoration: underline;
 }
+
+.navbar a:hover {
+  color: #4bf542;
+}
+
 /*paragraph element styles*/
 p {
   font-size: 1rem;
@@ -111,13 +116,13 @@ input {
 }
 
 .hero {
-  padding: 3% 4%;
+  padding: 5%;
   background-color: var(--dark);
   color: var(--primary);
 }
 
 .hero p {
-  max-width: 75%;
+  max-width: 100%;
 }
 
 .app-title {
@@ -311,7 +316,7 @@ input {
 }
 
 /* MEDIA QUERY FOR RESPONSIVENESS */
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 600px) {
   .col-sm-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
   }
